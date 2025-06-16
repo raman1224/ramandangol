@@ -9,13 +9,13 @@ app.use(express.static(path.join(__dirname)));
 
 // Home page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname,  'index.html'));
 });
 
 // Download resume route
 app.get('/download-resume', (req, res) => {
-  const filePath = path.join(__dirname, '(FREE COPY) Raman Dangol Resume.pdf');
-  res.download(filePath, 'Raman_Dangol_Resume.pdf', (err) => {
+  const filePath = path.join(__dirname, 'resume', 'resume.pdf');
+  res.download(filePath, 'resume.pdf', (err) => {
     if (err) {
       console.error('Error downloading resume:', err);
       res.status(500).send('Sorry, file not found or server error.');
